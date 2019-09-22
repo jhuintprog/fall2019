@@ -226,7 +226,7 @@ The `render_voice` function renders a sine, square, or sawtooth wave into both c
 
 The `render_song` program, whose `main` function should be defined in `render_song.c`, is invoked as follows:
 
-> <tt>./render\_song <i>songinput</i> <i>waveoutput</i></tt>
+> <tt>./render&#95;song <i>songinput</i> <i>waveoutput</i></tt>
 
 The file <tt><i>songinput</i></tt> is a text file describing a "song".  The first two values in a song file are the total number of samples, followed by the number of samples in one "beat".  For example, if these values are
 
@@ -368,7 +368,7 @@ When this third version of the song is rendered to a WAVE file using `render_son
 
 The `render_echo` program processes an input WAVE file to generate an echo effect, and is invoked as follows:
 
-> <tt>./render\_echo <i>wavfilein</i> <i>wavfileout</i> <i>delay</i> <i>amplitude</i></tt>
+> <tt>./render&#95;echo <i>wavfilein</i> <i>wavfileout</i> <i>delay</i> <i>amplitude</i></tt>
 
 The <tt><i>wavfilein</i></tt> argument names an input WAVE file.
 
@@ -384,7 +384,7 @@ As an example, let's say that <tt>ticktock.wav</tt> is the original version of t
 
 <blockquote>
 <pre>
-./render\_echo ticktock.wav ticktock\_echo.wav 11025 0.4
+./render&#95;echo ticktock.wav ticktock&#95;echo.wav 11025 0.4
 </pre>
 </blockquote>
 
