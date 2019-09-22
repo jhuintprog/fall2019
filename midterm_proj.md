@@ -326,3 +326,40 @@ P 1.2
 When this version of the song is rendered to a WAVE file using `render_song`, it should sound like this:
 
 > <audio controls><source src="snd/ticktock.wav" type="audio/wav"></audio>
+
+Let's consider a third version, this time using square waves:
+
+<blockquote>
+<pre>
+352800
+22050
+
+V 1
+C 0.4 63 66 999
+P 0.6
+C 0.4 61 65 999
+P 0.6
+C 0.4 63 66 999
+P 0.6
+C 0.4 61 65 999
+P 0.6
+C 0.4 63 66 999
+P 0.6
+C 0.4 61 65 999
+P 0.6
+C 0.4 63 66 999
+P 0.6
+C 0.4 61 65 999
+P 0.6
+C 0.8 66 70 999
+P 1.2
+C 0.8 66 70 999
+P 1.2
+C 0.8 66 70 999
+P 1.2
+</pre>
+</blockquote>
+
+When this third version of the song is rendered to a WAVE file using `render_song`, it should sound like this:
+
+> <audio controls><source src="snd/ticktock_sq.wav" type="audio/wav"></audio>
