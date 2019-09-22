@@ -49,7 +49,9 @@ There are a variety of ways to represent sound using a computer.  The most strai
 
 To make this idea explicit, let's say that the sound we want to represent is a sine wave with an aplitude of 0.1 and a frequency of 440 Hz.  We'll consider amplitude as being relative to the loudest possible sound, defined as 1.0, so a signal with an amplitude of 0.1 has positive and negative peaks that are 10% as large as the loudest possible signal.  With a sampling frequency of 44.1 KHz, each cycle of our 440 Hz audio signal will be represented by about 100 samples (really 100.2<span style="text-decoration: overline;">27</span>).  The values of the individual samples will vary between (appoximately) -3,276 and 3,276.  Let's say the audio data is in an array of `int16_t` elements called `sound`.  Here is a diagram showing points on the signal, their values, and which array elements they would be stored in:
 
-> Yeah!
+> <a href="img/sound-sinewave-samples.png"><img alt="Sine wave" src="img/sound-sinewave-samples.png" style="width: 40em;"></a>
+
+As long as the number of bits per sample is reasonably large, and the sampling frequency is reasonably high, a PCM can represent audio with high fidelity to the original sound.
 
 ## Detailed requirements
 
