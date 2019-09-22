@@ -1,0 +1,4 @@
+coursename: "Intermediate Programming (F19)"
+baseurl: "/fall2019"
+markdown: kramdown
+highlighter: rouge
