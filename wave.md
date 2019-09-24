@@ -68,7 +68,7 @@ The `render_sine_wave`, `render_square_wave`, and `render_saw_wave` functions ge
 * The `freq_hz` parameter specifies the frequency of the generated waveform in Hz (cycles per second)
 * The `amplitude` parameter indicates the relative amplitude of the generated waveform, where 1.0 is the maximum possible amplitude
 
-A square wave is a waveform where the generated sample values are all at either the maximum or minimum (with respect to the amplitude), i.e.
+A square wave is a waveform where the generated sample values oscillate between maximum and minimum sample values (with respect to the amplitude), i.e.
 
 > <a href="img/sound-square.png"><img alt="Square wave" src="img/sound-square.png" style="width: 40em;"></a>
 
