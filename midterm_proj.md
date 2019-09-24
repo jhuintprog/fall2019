@@ -21,13 +21,17 @@ The project is larger and more complex than the previous homework assignments.  
 
 There is quite a bit of information in this project description, so it's split into several web documents.  Click the links as noted below.
 
+## Getting started
+
+Once you and your partner have set up your Bitbucket repository, you can get started by cloning it, and then copying the files from the `midterm-project` directory of the `cs220fa19-public` repository into it.
+
 ## Sound
 
 You should read the [Sound](sound.html) section for some useful background on sound and how it can be represented digitally.
 
-## Detailed requirements
+## Functional requirements
 
-This section describes the detailed project requirements.  There are several parts.
+This section describes the project's functional requirements.  There are several parts.
 
 ### I/O routines
 
@@ -48,3 +52,29 @@ The `render_song` program reads a song file in a text-based format, and renders 
 ### `render_echo` program
 
 The `render_echo` program adds an "echo" effect to a digital audio file.  Read the [render\_echo](render_echo.html) document for a complete specification.
+
+## Tips and tricks
+
+The [Tips and tricks](tips.html) document has some important suggestions for implementing the functional requirements.
+
+## Packaging requirements
+
+Your project must include a `Makefile` which has targets which build the `render_tone`, `render_song`, and `render_echo` programs.  These targets must specify dependencies on the appropriate object (`.o`) files.  The targets for object files must have appropriate dependencies on a source (`.c`) file and any header (`.h`) files used directly or indirectly in compiling the object file.
+
+Your `Makefile` must also have a `clean` target which deletes all object (`.o`) files and executables (`render_tone`, `render_song`, and `render_echo`.)
+
+# Submitting
+
+To submit, first generate a Git log:
+
+```bash
+git log > gitlog.txt
+```
+
+The create a zipfile with with your `.c` files, `.h` files, `Makefile`, and Git log:
+
+```bash
+zip midterm_proj.zip Makefile *.c *.h gitlog.txt
+```
+
+Upload `midterm_proj.zip` to Gradescope as **Midterm project**.
