@@ -9,15 +9,17 @@ Due: TBD
 
 **Acknowledgement**: This project was inspired by two assignments ([first](http://nifty.stanford.edu/2010/zingaro-song-generator), [second](http://nifty.stanford.edu/2012/zingaro-stereo-sound-processing/)) developed by [Dan Zingaro](http://www.danielzingaro.com/).
 
-## General requirements
+## Introduction
 
 In this project you will implement programs to generate and transform digital audio.
 
-This is a pair project, so you will work with one classmate.  You should practice pair programming where you work directly with you partner, in person, to design and implement the program.
+This is a pair project, so you will work with one classmate.  You should practice pair programming where you work directly with you partner, in person, to design and implement the program.  We will spend some time in class working on the project, so your partner needs to be in your section.
 
-You will use git for version control.  You will need to make a new private repository on bitbucket and use the repository settings to allow both team members to access it.
+You will use git for version control.  You will need to make a new private repository on Bitbucket and set the repository settings to allow both team members to access it.  (In Bitbucket, one team member should create a repository, navigate to it, choose **Settings**, then choose **User and group access**, then add the other teammate with at least **Write** permission.)
 
 The project is larger and more complex than the previous homework assignments.  You’ll want to start early and make steady, incremental progress towards completing the project requirements.
+
+There is quite a bit of information in this project description, so it's split into several web documents.  Click the links as noted below.
 
 ## Outline
 
