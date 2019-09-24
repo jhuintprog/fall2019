@@ -178,3 +178,15 @@ C 1.0 63 66 999
 When rendered to a WAVE file using `render_song`, it should sound like this:
 
 > <audio controls><source src="snd/ampl.wav" type="audio/wav"></audio>
+
+## Approach
+
+The program should open the input text file and read the duration and beat length values from it.  It can use the duration to create a stereo sample array of an appropriate length.
+
+The program's main loop should read directives one at a time and process them.
+
+`N` and `C` directives can be carried out by calling the `render_voice_stereo` function from your [WAVE routines](wave.html).
+
+If, when attempting to read a directive character, the program encounters end of file, that means that the song has ended.
+
+If the input is malformed, the program should call the `fatal_error` function.

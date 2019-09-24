@@ -54,3 +54,7 @@ Rendering a 130.81 Hz sawtooth wave:
 Resulting audio:
 
 > <audio controls><source src="snd/c131_saw.wav" type="audio/wav"></audio>
+
+## Approach
+
+The program should create a stereo sample array of an appropriate length, and then call `render_voice_stereo` (or another suitable function) from your [WAVE routines](wave.html) to render the waveform into the array.  Then, the program should open the output file, call the `write_wave_header` function to write the WAVE header, then write the sample data.
