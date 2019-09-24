@@ -5,6 +5,22 @@ title: "Midterm project: testing"
 
 This document describes how you can test your programs.
 
+## Getting files to your local computer
+
+If you develop, compile, and test your programs on one of the ugrad machines, you will need to copy the output WAVE file to your local machine so you can play it using a media player program.
+
+Let's say that your local repository (cloned from your team's Bitbucket repository) is in the `midterm_proj` directory of your ugrad account.  Also, let's say that you want to listen to a generated WAVE file called `ticktock.wav` that you generated in `midterm_proj`.  You'll need to use either the `scp` or `pscp` command to copy the file onto your local machine.  For example:
+
+```bash
+scp username@ugradx.cs.jhu.edu:midterm_proj/ticktock.wav .
+```
+
+(Obviously, replace `username` with your username.)
+
+Once you've copied the file onto your local machine, it's very likely that double-clicking it in a file browser will launch a program (VLC, Windows media player, Quicktime, etc.) capable of playing it.
+
+If you're working in a public lab, you should bring headphones or earbuds so that you can listen to the generated audio without disturbing people working nearby.
+
 ## Example files
 
 The following example files are available.
