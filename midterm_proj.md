@@ -43,7 +43,7 @@ After you've completed `fatal_error` and the binary I/O functions, you can work 
 
 ### `render_tone` program
 
-*TODO* describe the `render_tone` program
+Once you have the WAVE file routines at least partially working, you can implement the [render\_tone](render_tone.html) program.  This is the simplest program in the assignment; it just renders a single tone to an output WAVE file.
 
 ### `render_song` program
 

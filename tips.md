@@ -12,3 +12,9 @@ TODO: use pow function to help in computing frequency from MIDI note number
 TODO: use sin function to help in rendering sine waveform
 
 TODO: using the floor function to help with rendering of sawtooth waveform
+
+TODO: using sscanf to convert a command line argument to a numeric value
+
+TODO: reading float vs. reading double (%f vs. %lf)
+
+TODO: opening input and output files using binary mode
