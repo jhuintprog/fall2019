@@ -39,54 +39,7 @@ Your first task is to (at least partially) implement a set of functions for erro
 
 ### Wave file routines
 
-Once you have implemented the binary I/O functions in `io.h`, you can read and write WAVE files.  Two functions called `read_wav_header` and `write_wav_header` are provided (including implementations in `wave.c`) which, respectively, read the header information from a WAVE file, and write header information for a WAVE file.  WAVE files are essentially just header information followed by a sequence of sample values.
-
-You can look at the implementation of `read_wav_header` and `write_wav_header` to see how they use your binary I/O functions.  Note that both routines are hard-coded to support only 16 bits per sample, 44.1 KHz, stereo (two channel) WAVE files.
-
-The header file `wave.h` has the following suggested contents:
-
-```c
-#define PI 3.14159265358979323846
-#define SAMPLES_PER_SECOND 44100u
-#define BITS_PER_SAMPLE 16u
-
-/* voices */
-#define SINE       0
-#define SQUARE     1
-#define SAW        2
-#define NUM_VOICES 3 /* one greater than maximum legal voice */
-
-void write_wav_header(FILE *out, unsigned num_samples);
-void read_wav_header(FILE *in, unsigned *num_samples);
-void render_sine_wave(int16_t buf[], unsigned num_samples, unsigned channel,
-  float freq_hz, float amplitude);
-void render_sine_wave_stereo(int16_t buf[], unsigned num_samples,
-  float freq_hz, float amplitude);
-void render_square_wave(int16_t buf[], unsigned num_samples, unsigned channel,
-  float freq_hz, float amplitude);
-void render_square_wave_stereo(int16_t buf[], unsigned num_samples,
-  float freq_hz, float amplitude);
-void render_saw_wave(int16_t buf[], unsigned num_samples, unsigned channel,
-  float freq_hz, float amplitude);
-void render_saw_wave_stereo(int16_t buf[], unsigned num_samples,
-  float freq_hz, float amplitude);
-void render_voice(int16_t buf[], unsigned num_samples, unsigned channel,
-  float freq_hz, float amplitude, unsigned voice);
-void render_voice_stereo(int16_t buf[], unsigned num_samples, float freq_hz,
-  float amplitude, unsigned voice);
-```
-
-The `render_sine_wave`, `render_square_wave`, and `render_saw_wave` functions generate (respectively) a sine wave, square wave, or sawtooth wave of the specified frequency into the specified stereo sample buffer.  The `channel` parameter indicates which channel to generate (0=left, 1=right).  The `buf` parameter is the pointer to the first element of an array of `int16_t` elements, each pair of elements representing the left and right samples at one instant in a 44.1 KHz audio stream.
-
-The `render_sine_wave_stereo`, `render_square_wave_stereo`, and `render_saw_wave_stereo` functions render a sine, square, or sawtooth waves into both channels of a stereo sample buffer.
-
-The `render_voice` function renders either a sine, square, or sawtooth wave into one channel (0=left, 1=right) of a stereo sample buffer, as indicated by the `voice` parameter.  The value of `voice` should be either `SINE`, `SQUARE`, or `SAW`.
-
-The `render_voice` function renders a sine, square, or sawtooth wave into both channels of a stereo sample buffer, as indicated by the `voice` parameter.
-
-**Important**: Note that you do not need to implement any of the `render_` functions exactly as described above.  You will need to implement functions to generate tones, but you are free to implement them in whatever way you think is appropriate.
-
-**Recommendation**: Don't implement all of the audio generation functions at once.  Implement them as needed to support the three programs you will be implementing, `render_tone`, `render_song`, and `render_echo`.
+After you've completed `fatal_error` and the binary I/O functions, you can work on the [WAVE routines](wave.html), which allow your programs to read and write WAVE files, and render digital audio waveforms.
 
 ### `render_tone` program
 
