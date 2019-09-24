@@ -5,7 +5,7 @@ title: "Midterm project: render_song"
 
 This document describes the `render_song` program.
 
-## Invocation
+## Invocation, input data format
 
 The `render_song` program, whose `main` function should be defined in `render_song.c`, is invoked as follows:
 
@@ -31,12 +31,20 @@ Next, the song file will have a series of *directives*.  The following directive
 > <tt>P <i>b</i></tt>: pause for <tt><i>b</i></tt> beats
 >
 > <tt>V <i>v</i></tt>: switch to voice <tt><i>v</i></tt>, where 0 is sine, 1 is square, and 2 is sawtooth
+>
+> <tt>A <i>a</i></tt>: change current amplitude to <tt><i>a</i></tt>, which must be in the range 0.0 to 1.0
+
+The program should render notes (`N`), chords (`C`), and pauses (`P`) in the order they occur in the input.  The first note, chord, or pause should be rendered starting at time zero.  Each subsequent note, chord, or pause should start where the previous note/chord/pause ended.  Note that `V` and `A` directives (to change the current voice or amplitude) don't affect the time positions of notes/chords/pauses.
 
 By default, notes and chords are generated using sine waves, but the `V` directive can change them to be rendered using square waves or sawtooth waves.
 
+By default, waveforms are generated using an amplitude of 0.1.  The <tt>A</tt> directive changes the current amplitude.
+
 A [MIDI note number](https://newt.phys.unsw.edu.au/jw/notes.html) (*n*) can be converted to a frequency (*f*) using the following formula:
 
-> *f* = 440 &times; 2<sup>(*n*-69) / 12</sup>
+> *f* = 440 &times; 2<sup>(<i>n</i>-69) / 12</sup>
+
+## Examples
 
 Here is a fairly simple song:
 
@@ -146,3 +154,27 @@ P 1.2
 When this third version of the song is rendered to a WAVE file using `render_song`, it should sound like this:
 
 > <audio controls><source src="snd/ticktock_sq.wav" type="audio/wav"></audio>
+
+Here is an example of using the `A` directive to change the current amplitude:
+
+<blockquote>
+<pre>
+132300
+44100
+
+A 0.005
+C 0.5 63 66 999
+A 0.01
+C 0.5 63 66 999
+A 0.02
+C 0.5 63 66 999
+A 0.04
+C 0.5 63 66 999
+A 0.08
+C 1.0 63 66 999
+</pre>
+</blockquote>
+
+When rendered to a WAVE file using `render_song`, it should sound like this:
+
+> <audio controls><source src="snd/ampl.wav" type="audio/wav"></audio>
