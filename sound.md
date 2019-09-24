@@ -67,8 +67,8 @@ Humans perceive clipping as distortion of the original signals.  Clipping can be
 
 ### Stereo sound, WAVE files
 
-Most sound recordings are *stereo* meaning that there are separate left and right audio channels.  A common way to represent stereo audio is to consider the even-numbered samples as belonging to the left channel, and the odd-numbered samples as belonging to the right channel.
+Most sound recordings are *stereo* meaning that there are separate left and right audio channels.  A common way to represent stereo audio is to consider the even-numbered samples (0 being the first sample) as belonging to the left channel, and the odd-numbered samples as belonging to the right channel.
 
-The [WAVE file format](http://soundfile.sapp.org/doc/WaveFormat/) is a common file format for digital audio.  Although a variety of encodings are possible in WAVE files, they are most commonly used for linear PCM audio data.  Wave files represent stereo PCM data using the scheme just described (even samples belong to the left channel, odd samples belong to the right channel.)
+The [WAVE file format](http://soundfile.sapp.org/doc/WaveFormat/) is a common file format for digital audio.  Although a variety of encodings are possible in WAVE files, they are most commonly used for linear PCM audio data.  Wave files represent stereo PCM data using the scheme just described (samples 0, 2, 4, etc. belong to the left channel, samples 1, 3, 5, etc. belong to the right channel.)
 
 In this project you will write programs to read and write audio data in the WAVE format.  The good news is that WAVE files are pretty simple: they consist of a *header* followed by raw sample data.  Digital audio programs can represent sound waveforms internally using arrays with sample data.  To read audio data from a WAVE file, a program needs to read the header, and then read the raw sample data into an array.  To write audio data to a WAVE file, a program needs to write the header, and then write the raw sample data from an array.
