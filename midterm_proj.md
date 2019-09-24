@@ -75,7 +75,7 @@ To submit, first generate a Git log:
 git log > gitlog.txt
 ```
 
-The create a zipfile with with your `.c` files, `.h` files, `Makefile`, and Git log:
+Then create a zipfile with with your `.c` files, `.h` files, `Makefile`, and Git log:
 
 ```bash
 zip midterm_proj.zip Makefile *.c *.h gitlog.txt
