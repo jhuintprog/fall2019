@@ -1,0 +1,29 @@
+table {
+	border-collapse: collapse;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+tr { border: 1px solid black; }
+
+th {
+	text-align: left;
+}
+
+th, td {
+	padding: 4px 8px;
+}
+
+#content {
+	margin: 0 auto;
+	max-width: 48em;
+}
+
+div.highlighter-rouge {
+	margin-left: 40px;
+	padding-left: 6px;
+	padding-right: 6px;
+	background: #eee;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+}
