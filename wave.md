@@ -60,9 +60,29 @@ You can look at the implementation of `read_wave_header` and `write_wave_header`
 
 ## `render_sine_wave`, `render_square_wave`, `render_saw_wave`
 
-The `render_sine_wave`, `render_square_wave`, and `render_saw_wave` functions generate (respectively) a sine wave, square wave, or sawtooth wave of the specified frequency into the specified stereo sample buffer.  The `channel` parameter indicates which channel to generate (0=left, 1=right).  The `buf` parameter is the pointer to the first element of an array of `int16_t` elements, each pair of elements representing the left and right samples at one instant in a 44.1 KHz audio stream.
+The `render_sine_wave`, `render_square_wave`, and `render_saw_wave` functions generate (respectively) a sine wave, square wave, or sawtooth wave of the specified frequency into the specified stereo sample buffer.  These functions take several parameters:
 
-TODO: explain square and sawtooth waveforms.
+* The `buf` parameter is the pointer to the first element of an array of `int16_t` elements, each pair of elements representing the left and right samples at one instant in a 44.1 KHz audio stream
+* The `num_samples` indicates how many samples to generate; this effectively determines the duration of the rendered audio waveform
+* The `channel` parameter indicates which channel to generate (0=left, 1=right)
+* The `freq_hz` parameter specifies the frequency of the generated waveform in Hz (cycles per second)
+* The `amplitude` parameter indicates the relative amplitude of the generated waveform, where 1.0 is the maximum possible amplitude
+
+A square wave is a waveform where the generated sample values are all at either the maximum or minimum (with respect to the amplitude), i.e.
+
+> <a href="img/sound-square.png"><img alt="Square wave" src="img/sound-square.png" style="width: 40em;"></a>
+
+Square waves are easy to generate using digital electronics, and were used frequently in early home computers and video games.  Here is a 440 Hz square wave:
+
+> <audio controls><source src="snd/a440_sq.wav" type="audio/wav"></audio>
+
+A sawtooth wave rises steadily from the minimum sample value to the maximum sample value (with respect to amplitude) on each cycle, i.e.
+
+> <a href="img/sound-saw.png"><img alt="Sawtooth wave" src="img/sound-saw.png" style="width: 40em;"></a>
+
+Sawtooth waves have a more "horn-like" sound than a plain sine wave.  Here is a 440 Hz sawtooth wave:
+
+> <audio controls><source src="snd/a440_saw.wav" type="audio/wav"></audio>
 
 The `render_sine_wave_stereo`, `render_square_wave_stereo`, and `render_saw_wave_stereo` functions render a sine, square, or sawtooth waves into both channels of a stereo sample buffer.
 
