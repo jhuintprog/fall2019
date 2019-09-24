@@ -68,3 +68,9 @@ We can add an additional echo with a 0.25 second delay with the command:
 The result of this second command is the following:
 
 > <audio controls><source src="snd/linux_echo2.wav" type="audio/wav"></audio>
+
+## Approach
+
+Your program will need to open the input file, call `read_wave_header` to read the WAVE header and get the number of (stereo) samples, then read the sample data into an array.  Adding the echo effect can be accomplished by adding attenuated sample values to the sample value at a later audio position, effectively mixing the echo into the original audio.  Note that you need to be careful about the order in which you process the samples!
+
+Once the sample data has been updated, open the output file, call `write_wave_header` to write the WAVE header, then write the updated sample values.
