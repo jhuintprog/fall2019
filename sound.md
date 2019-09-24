@@ -21,7 +21,7 @@ Plotted with time on the x-axis and pressure on the y-axis, a sine wave looks li
 
 > <a href="img/sound-sinewave.png"><img alt="Sine wave" src="img/sound-sinewave.png" style="width: 40em;"></a>
 
-A *cycle* consists of one full oscillation with both positive and positive peaks:
+A *cycle* consists of one full oscillation with both positive and negative peaks:
 
 > <a href="img/sound-sinewave-cycles.png"><img alt="Sine wave" src="img/sound-sinewave-cycles.png" style="width: 40em;"></a>
 
