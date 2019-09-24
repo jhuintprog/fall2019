@@ -67,6 +67,8 @@ Your project must include a `Makefile` which has targets which build the `render
 
 Your `Makefile` must also have a `clean` target which deletes all object (`.o`) files and executables (`render_tone`, `render_song`, and `render_echo`.)
 
+Keep in mind that your programs will need to link with the math library, so add `-lm` to your linking commands.
+
 ## Submitting
 
 To submit, first generate a Git log:
