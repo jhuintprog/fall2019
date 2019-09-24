@@ -21,10 +21,6 @@ The project is larger and more complex than the previous homework assignments.  
 
 There is quite a bit of information in this project description, so it's split into several web documents.  Click the links as noted below.
 
-## Outline
-
-TODO
-
 ## Sound
 
 You should read the [Sound](sound.html) section for some useful background on sound and how it can be represented digitally.
@@ -51,28 +47,4 @@ The `render_song` program reads a song file in a text-based format, and renders 
 
 ### `render_echo` program
 
-The `render_echo` program processes an input WAVE file to generate an echo effect, and is invoked as follows:
-
-> <tt>./render&#95;echo <i>wavfilein</i> <i>wavfileout</i> <i>delay</i> <i>amplitude</i></tt>
-
-The <tt><i>wavfilein</i></tt> argument names an input WAVE file.
-
-The <tt><i>wavfileout</i></tt> argument names an output WAVE file to write, which will be a transformed version of <tt><i>wavfilein</i></tt>.
-
-The <tt><i>delay</i></tt> argument is an integer delay, specified as a number of samples.
-
-The <tt><i>amplitude</i></tt> argument is a floating point value in the range 0.0 to 1.0, specifying a relative amplitude of the echo effect to generate.
-
-Generating a echo is simple: the program should add an attenuated copy of the audio signal at an offset as indicated by the <tt><i>delay</i></tt> argument.  For example, if <tt><i>delay</i></tt> is 22050, that indicates a delay of 0.5 seconds.  The amplitude of the copied signal is specified by the <tt><i>amplitude</i></tt> argument.  For example, if <tt><i>amplitude</i></tt> is 0.4, then the echoed copy of the signal should be 40% of the amplitude of the original.
-
-As an example, let's say that <tt>ticktock.wav</tt> is the original version of the example song described in the `render_song` section, and we run the command
-
-<blockquote>
-<pre>
-./render&#95;echo ticktock.wav ticktock&#95;echo.wav 11025 0.4
-</pre>
-</blockquote>
-
-The result is this:
-
-> <audio controls><source src="snd/ticktock_echo.wav" type="audio/wav"></audio>
+The `render_echo` program adds an "echo" effect to a digital audio file.  Read the [render\_echo](render_echo.html) document for a complete specification.
