@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Midterm project: audio generation and processing"
+title: "Midterm project: Sound"
 ---
 
 ## Sound

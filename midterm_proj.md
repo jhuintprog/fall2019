@@ -33,79 +33,9 @@ You should read the [Sound](sound.html) section for some useful background on so
 
 This section describes the detailed project requirements.  There are several parts.
 
-### `fatal_error` function
+### I/O routines
 
-You can start by implementing (in `io.c`) the `fatal_error` function. It is declared in the `io.h` header file, as follows:
-
-```c
-void fatal_error(const char *message);
-```
-
-It should print the specified message to `stderr` and then call the `exit` function (defined in `<stdlib.h>`) with the argument 1.
-
-The purpose of `fatal_error` is to immediately exit the program if an unrecoverable error, such as unexpected input data, is encountered.  Although this is a somewhat heavy handed way of dealing with errors, it is simple.  We will see a more sohisticated and flexible way of reporting and handling runtime errors later in the course when we cover *exceptions* in C++.
-
-### Binary I/O routines
-
-WAVE files are *binary* files, meaning their contents consist of arbitrary byte values.
-
-Furthermore, the specific type of WAVE file generated and transformed by the programs you will implement in this assignment use *little-endian* binary data, where multi-byte values are represented as a sequence of bytes such that less significant bytes occur before more significant bytes.
-
-You should start your work by implementing the following binary I/O (input and output) functions, which are declared in the `io.h` header file:
-
-```c
-void write_byte(FILE *out, char val);
-void write_bytes(FILE *out, const char data[], unsigned n);
-void write_u16(FILE *out, uint16_t value);
-void write_u32(FILE *out, uint32_t value);
-void write_s16(FILE *out, int16_t value);
-void write_s16_buf(FILE *out, const int16_t buf[], unsigned n);
-
-void read_byte(FILE *in, char *val);
-void read_bytes(FILE *in, char data[], unsigned n);
-void read_u16(FILE *in, uint16_t *val);
-void read_u32(FILE *in, uint32_t *val);
-void read_s16(FILE *in, int16_t *val);
-void read_s16_buf(FILE *in, int16_t buf[], unsigned n);
-```
-
-The `write_byte`, `write_u16`, `write_u32`, and `write_s16` functions write a single data value of type `char`, `uint16_t`, `uint32_t`, or `int16_t` respectively.
-
-Multi-byte data values (`uint16_t`, `uint32_t`, `int16_t`) must be written in *little-endian* format, such that less significant bytes are written before more significant bytes.  For example, a `uint16_t` data value consists of two bytes.  Lets say we want to write a `uint16_t` value `x`.  The least significant byte can be computed using the code
-
-```c
-x % 256
-```
-
-or the code
-
-```c
-x & 0xFF
-```
-
-The most significant byte could be computed using the code
-
-```c
-(x / 256) % 256
-```
-
-or the code
-
-```c
-(x >> 8) & 0xFF
-```
-
-A single byte of binary data can be written to a `FILE *` file handle using the `fputc` function.  We recommend that you implement the `write_` functions using a series of calls to `fputc`, one for each byte that needs to be written.
-
-The `write_` functions should call `fatal_error` if an error occurs while writing data.
-
-The `write_bytes` and `write_s16_buf` functions write a sequence of `char` or `int16_t` values, respectively.  They should be implemented as a series of calls to `write_byte` or `write_s16`, respectively, one for each element of the argument array.
-
-The `read_byte`, `read_u16`, `read_u32`, and `read_s16` functions read a single data value of type `char`, `uint16_t`, `uint32_t`, or `int16_t`, respectively, storing the value read in a variable whose address is passed as a pointer parameter to the function.  Each data value should be read as a sequence of byte values in little-endian format.
-
-*TODO* say more about how to read little-endian bytes and reconstruct a multi-byte data value.
-
-The `read_bytes` and `read_s16_buf` functions read a sequence of `char` or `int16_t` values, respectively, and store them in the array passed as a parameter.
+Your first task is to (at least partially) implement a set of functions for error reporting and binary input and output.  These will be defined in the header `io.h` and the source file `io.c`.  Read the [I/O routines](io.html) document for complete details.
 
 ### Wave file routines
 
