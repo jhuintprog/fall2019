@@ -85,8 +85,22 @@ The `write_` functions should call `fatal_error` if an error occurs while writin
 
 The `write_bytes` and `write_s16_buf` functions write a sequence of `char` or `int16_t` values, respectively.  They should be implemented as a series of calls to `write_byte` or `write_s16`, respectively, one for each element of the argument array.
 
-The `read_byte`, `read_u16`, `read_u32`, and `read_s16` functions read a single data value of type `char`, `uint16_t`, `uint32_t`, or `int16_t`, respectively, storing the value read in a variable whose address is passed as a pointer parameter to the function.  Each data value should be read as a sequence of byte values in little-endian format.
+The `read_byte`, `read_u16`, `read_u32`, and `read_s16` functions read a single data value of type `char`, `uint16_t`, `uint32_t`, or `int16_t`, respectively, storing the value read in a variable whose address is passed as a pointer parameter to the function.
 
-*TODO* say more about how to read little-endian bytes and reconstruct a multi-byte data value.
+The `read_u16`, `read_u32`, and `read_s16` functions should read individual data bytes and then reconstruct the overall value.  As with the `write_` functions, the data bytes will be in little endian order.  For example, if two bytes `v1` and `v2` are read, a `uint16_t` value could be constructed using the code
+
+```c
+v1 + (v2 * 256)
+```
+
+or (equivalently)
+
+```c
+v1 | (v2 << 8)
+```
+
+We recommend that you use the `fgetc` function to read an individual data byte.  This function returns the special `EOF` value if it can't read a data byte, otherwise it returns the value of the byte (in the range 0–255.)
 
 The `read_bytes` and `read_s16_buf` functions read a sequence of `char` or `int16_t` values, respectively, and store them in the array passed as a parameter.
+
+If any of the `read_`  functions fail to read the required number of data bytes, they should call the `fatal_error` function.
