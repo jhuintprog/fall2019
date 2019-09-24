@@ -5,7 +5,7 @@ title: "Midterm project: WAVE routines"
 
 This document describes functions for working with WAVE files and digital audio waveforms.  This module of the program consists of the header file `wave.h` and the source file `wave.c`.
 
-The `write_wav_header` and `read_wav_header` functions require the [binary I/O functions](io.html), so implement those first.
+The `write_wave_header` and `read_wave_header` functions require the [binary I/O functions](io.html), so implement those first.
 
 ## `wave.h`
 
@@ -23,8 +23,8 @@ The header file `wave.h` has the following suggested contents:
 #define SAW        2
 #define NUM_VOICES 3 /* one greater than maximum legal voice */
 
-void write_wav_header(FILE *out, unsigned num_samples);
-void read_wav_header(FILE *in, unsigned *num_samples);
+void write_wave_header(FILE *out, unsigned num_samples);
+void read_wave_header(FILE *in, unsigned *num_samples);
 void render_sine_wave(int16_t buf[], unsigned num_samples, unsigned channel,
   float freq_hz, float amplitude);
 void render_sine_wave_stereo(int16_t buf[], unsigned num_samples,
@@ -51,11 +51,11 @@ The constants `SINE`, `SQUARE`, and `SAW` distinguish the three kinds of audio w
 
 The function declarations are for functions defined in `wave.c`: these are described in more detail below.
 
-## `read_wav_header`, `write_wav_header`
+## `read_wave_header`, `write_wave_header`
 
-Two functions called `read_wav_header` and `write_wav_header` are provided (including implementations in `wave.c`) which, respectively, read the header information from a WAVE file, and write header information for a WAVE file.  WAVE files are essentially just header information followed by a sequence of sample values.
+Two functions called `read_wave_header` and `write_wave_header` are provided (including implementations in `wave.c`) which, respectively, read the header information from a WAVE file, and write header information for a WAVE file.  WAVE files are essentially just header information followed by a sequence of sample values.
 
-You can look at the implementation of `read_wav_header` and `write_wav_header` to see how they use your binary I/O functions.  Note that both routines are hard-coded to support only 16 bits per sample, 44.1 KHz, stereo (two channel) WAVE files.  For our purposes, the only "interesting" value in the WAVE header is the number of *stereo* samples, which determines the length of the audio.  Note that a stereo sample consists of *two* 16-bit signed integer values.
+You can look at the implementation of `read_wave_header` and `write_wave_header` to see how they use your binary I/O functions.  Note that both routines are hard-coded to support only 16 bits per sample, 44.1 KHz, stereo (two channel) WAVE files.  For our purposes, the only "interesting" value in the WAVE header is the number of *stereo* samples, which determines the length of the audio.  Note that a stereo sample consists of *two* 16-bit signed integer values, one for each channel (left and right).
 
 
 ## `render_sine_wave`, `render_square_wave`, `render_saw_wave`
