@@ -57,6 +57,10 @@ The `render_echo` program adds an "echo" effect to a digital audio file.  Read t
 
 The [Tips and tricks](tips.html) document has some important suggestions for implementing the functional requirements.
 
+## Testing
+
+Please see the [testing](testing.html) document for information about how to test your programs.  This document has links to example input and output files.
+
 ## Packaging requirements
 
 Your project must include a `Makefile` which has targets which build the `render_tone`, `render_song`, and `render_echo` programs.  These targets must specify dependencies on the appropriate object (`.o`) files.  The targets for object files must have appropriate dependencies on a source (`.c`) file and any header (`.h`) files used directly or indirectly in compiling the object file.
