@@ -7,7 +7,7 @@ Due: TBD
 
 *This is a preliminary project description, so definitely not official!*
 
-**Acknowledgement**: This project was inspired by two assignments ([first](http://nifty.stanford.edu/2010/zingaro-song-generator), [second](http://nifty.stanford.edu/2012/zingaro-stereo-sound-processing/)) developed by [Dan Zingaro](http://www.danielzingaro.com/).
+**Acknowledgment**: This project was inspired by two assignments ([first](http://nifty.stanford.edu/2010/zingaro-song-generator), [second](http://nifty.stanford.edu/2012/zingaro-stereo-sound-processing/)) developed by [Dan Zingaro](http://www.danielzingaro.com/).
 
 ## Introduction
 
@@ -67,7 +67,7 @@ Your project must include a `Makefile` which has targets which build the `render
 
 Your `Makefile` must also have a `clean` target which deletes all object (`.o`) files and executables (`render_tone`, `render_song`, and `render_echo`.)
 
-# Submitting
+## Submitting
 
 To submit, first generate a Git log:
 
