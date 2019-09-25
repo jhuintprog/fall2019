@@ -12,6 +12,8 @@ The `write_wave_header` and `read_wave_header` functions require the [binary I/O
 The header file `wave.h` has the following suggested contents:
 
 ```c
+#include <stdint.h>
+
 #define PI                 3.14159265358979323846
 #define SAMPLES_PER_SECOND 44100u
 #define NUM_CHANNELS       2u
@@ -43,7 +45,7 @@ void render_voice_stereo(int16_t buf[], unsigned num_samples, float freq_hz,
   float amplitude, unsigned voice);
 ```
 
-The constants `SAMPLES_PER_SECOND` and `BITS_PER_SAMPLE` define the parameters of stereo CD-quality PCM audio.
+The constants `SAMPLES_PER_SECOND`, `NUM_CHANNELS`, and `BITS_PER_SAMPLE` define the parameters of stereo CD-quality PCM audio.
 
 The constant `PI` closely approximates the value of π.
 
@@ -56,6 +58,47 @@ The function declarations are for functions defined in `wave.c`: these are descr
 Two functions called `read_wave_header` and `write_wave_header` are provided (including implementations in `wave.c`) which, respectively, read the header information from a WAVE file, and write header information for a WAVE file.  WAVE files are essentially just header information followed by a sequence of sample values.
 
 You can look at the implementation of `read_wave_header` and `write_wave_header` to see how they use your binary I/O functions.  Note that both routines are hard-coded to support only 16 bits per sample, 44.1 KHz, stereo (two channel) WAVE files.  For our purposes, the only "interesting" value in the WAVE header is the number of *stereo* samples, which determines the length of the audio.  Note that a stereo sample consists of *two* 16-bit signed integer values, one for each channel (left and right).
+
+Here is a very simple example program that calls `read_wave_header`:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include "io.h"
+#include "wave.h"
+
+int main(int argc, char **argv) {
+  if (argc != 2) {
+    fprintf(stderr, "Usage: %s <wave file>\n", argv[0]);
+    exit(1);
+  }
+
+  FILE *in = fopen(argv[1], "rb");
+  if (in == NULL) {
+    fatal_error("Couldn't open wave file");
+  }
+
+  unsigned num_samples;
+  read_wave_header(in, &num_samples);
+  printf("Wave file has %u stereo samples\n", num_samples);
+
+  fclose(in);
+
+  return 0;
+}
+```
+
+Let's say that we compile and link this program as an executable called `readwav`.  If we run the program on the WAVE file called [a440.wav](snd/a440.wav) as follows
+
+```bash
+./readwav a440.wav
+```
+
+The output will be
+
+```
+Wave file has 44100 stereo samples
+```
 
 
 ## `render_sine_wave`, `render_square_wave`, `render_saw_wave`

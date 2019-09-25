@@ -25,6 +25,16 @@ If you're working in a public lab, you should bring headphones or earbuds so tha
 
 The following example files are available.
 
+You can download them to your computer by right-clicking the link and choosing **Save link as...**.
+
+To download an example file to your ugrad account, you can right-click on the link, choose **Copy link address**, and then paste the link into a `curl` command in your terminal.  For example:
+
+```bash
+curl -O https://jhuintprog.github.io/fall2019/res/ticktock.txt
+```
+
+to download `ticktock.txt`.  Note that `-O` in the `curl` command is a hyphen followed by upper case letter "O", not the digit zero.
+
 ### Song files
 
 Here are some song files you can use as input to your [render\_song](render_song.html) program.
