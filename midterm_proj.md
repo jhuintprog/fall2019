@@ -61,6 +61,21 @@ The [Tips and tricks](tips.html) document has some important suggestions for imp
 
 Please see the [testing](testing.html) document for information about how to test your programs.  This document has links to example input and output files.
 
+## General requirements and expectations
+
+We expect that you will submit well-designed, well-implemented, and well-tested code.  If your code does not compile or execute properly, you will receive a zero.
+
+Run `valgrind` on your code and make sure there are no memory-related issues (memory leaks, out of bounds array accesses, uses of uninitialized memory, etc.)
+
+Comment your code.  The general expectation for code comments is
+
+* Each function has a comment describing the purpose of the function, parameters, and return value
+* Significant regions of code within function bodies (loops, important computations, etc.) have comments explaining their intent
+
+Commit early and often.  The way to implement a complex program is by steady progress in adding small but useful improvements to the program.  Use git commits to record these increments of progress.  Make sure that each commit has a meaningful log message.
+
+Be a team player.  Make sure you are contributing your fair share of effort to the success of the project. Make sure that you are working closely with your partner and allowing your partner to contribute.
+
 ## Packaging requirements
 
 Your project must include a `Makefile` which has targets which build the `render_tone`, `render_song`, and `render_echo` programs.  These targets must specify dependencies on the appropriate object (`.o`) files.  The targets for object files must have appropriate dependencies on a source (`.c`) file and any header (`.h`) files used directly or indirectly in compiling the object file.
@@ -68,6 +83,8 @@ Your project must include a `Makefile` which has targets which build the `render
 Your `Makefile` must also have a `clean` target which deletes all object (`.o`) files and executables (`render_tone`, `render_song`, and `render_echo`.)
 
 Keep in mind that your programs will need to link with the math library, so add `-lm` to your linking commands.
+
+Your project must include a `README` file that contains your names and JHED IDs.
 
 ## Submitting
 
@@ -77,10 +94,12 @@ To submit, first generate a Git log:
 git log > gitlog.txt
 ```
 
-Then create a zipfile with with your `.c` files, `.h` files, `Makefile`, and Git log:
+Then create a zipfile with with your `.c` files, `.h` files, `Makefile`, `README`, and Git log:
 
 ```bash
-zip midterm_proj.zip Makefile *.c *.h gitlog.txt
+zip midterm_proj.zip Makefile *.c *.h README gitlog.txt
 ```
 
 Upload `midterm_proj.zip` to Gradescope as **Midterm project**.
+
+Make sure that you do **not** submit any WAVE (`.wav`) files.
