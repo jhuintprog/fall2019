@@ -100,8 +100,7 @@ The output will be
 Wave file has 44100 stereo samples
 ```
 
-
-## `render_sine_wave`, `render_square_wave`, `render_saw_wave`
+## Rendering tones
 
 The `render_sine_wave`, `render_square_wave`, and `render_saw_wave` functions generate (respectively) a sine wave, square wave, or sawtooth wave of the specified frequency into the specified stereo sample buffer.  These functions take several parameters:
 
@@ -136,3 +135,12 @@ The `render_voice` function renders a sine, square, or sawtooth wave into both c
 **Important**: Note that you do not need to implement any of the `render_` functions exactly as described above.  You will need to implement functions to generate tones, but you are free to implement them in whatever way you think is appropriate.
 
 **Recommendation**: Don't implement all of the audio generation functions at once.  Implement them as needed to support the three programs you will be implementing, `render_tone`, `render_song`, and `render_echo`.
+
+## Rendering is additive!
+
+**Extremely important consideration**: Your tone-rendering functions should be `additive`, meaning that the waveforms that are rendered should be *added* to whatever sample values are already present.  This is necessary, for example, to allow the [render\_song](render_song.html) program to produce chords, where several frequencies are generated at the same time.
+
+There are a couple of things you should think about in order to make this work correctly:
+
+1. You will want all sample values to be initialized to zero, prior to any of the `render_` functions being called.  This ensures that the initial signal is silence.
+2. If the result of adding a new sample value to an existing sample value is either greater than 32,767 or less than -32,768 (these are the maximum and minimum `int16_t` values, respectively), then your code should clamp the result at 32,767 or -32,768.  (See the [Sound](sound.html#mixing-digital-audio-signals-clipping) document for details.)  To detect when a computed sample value is outside the legal range, your code will need to do the addition using a data type with a larger range of possible values (e.g., `int32_t`.)
