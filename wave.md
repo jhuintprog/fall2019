@@ -136,6 +136,23 @@ The `render_voice` function renders a sine, square, or sawtooth wave into both c
 
 **Recommendation**: Don't implement all of the audio generation functions at once.  Implement them as needed to support the three programs you will be implementing, `render_tone`, `render_song`, and `render_echo`.
 
+## Hints on how to render waveforms
+
+Rendering sine waves is relatively straightforward, since you can use the equation
+
+> *p* = *a* × sin(*tf* × 2π)
+
+more or less directly.  The main thing you'll need to think about is how to convert a sample number into a time value *t*.  (Hint: the number of samples in one second of audio is defined by the `SAMPLES_PER_SECOND` constant.)  Also, because *p* will range from -1.0 to 1.0, you'll need to scale it appropriately to fit the range of the `int16_t` data type.
+
+You can think of square waves as being modified sine waves:
+
+* For any sample where a sine wave would have a non-negative value, the square wave should have a "maximum" value (with respect to amplitude)
+* For any sample where a sine wave would have a negative value, the square wave should have a "minimum" value (with respect to amplitude)
+
+However you generate square waves, make sure that the duty cycle is 50%, meaning that the runs of maximum sample values are about the same length as the runs of minimum sample values.
+
+The sample values generated for sawtooth waves should increase linearly from the minimum to maximum throughout each cycle.  One way to implement this is to take the time *t* of the sample, and divide it by the length of one cycle.  For example, let's say the frequency is 440 Hz, which would make the cycle length about 0.002272 seconds.  If *t* is 4.8 seconds, then dividing *t* by the cycle length gives us approximately 2112.676056.  Taking the *floor* of this value gives us .676056.  What this means is that for our value of *t* (4.8 seconds), the generated sawtooth waveform about 2/3 of the way through the current cycle (0.676056 is about 2/3.)  Knowing where *t* is within the current cycle allows us to compute an appropriate sample value.
+
 ## Rendering is additive!
 
 **Extremely important consideration**: Your tone-rendering functions should be `additive`, meaning that the waveforms that are rendered should be *added* to whatever sample values are already present.  This is necessary, for example, to allow the [render\_song](render_song.html) program to produce chords, where several frequencies are generated at the same time.
