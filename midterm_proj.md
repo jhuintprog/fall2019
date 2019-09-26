@@ -3,7 +3,7 @@ layout: default
 title: "Midterm project: audio generation and processing"
 ---
 
-Due: TBD
+Due: Thursday, October 18th by 11pm
 
 *This is a preliminary project description, so definitely not official!*
 
