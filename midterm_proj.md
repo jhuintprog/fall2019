@@ -5,8 +5,6 @@ title: "Midterm project: audio generation and processing"
 
 Due: Thursday, October 18th by 11pm
 
-*This is a preliminary project description, so definitely not official!*
-
 **Acknowledgment**: This project was inspired by two assignments ([first](http://nifty.stanford.edu/2010/zingaro-song-generator), [second](http://nifty.stanford.edu/2012/zingaro-stereo-sound-processing/)) developed by [Dan Zingaro](http://www.danielzingaro.com/).
 
 ## Introduction
