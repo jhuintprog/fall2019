@@ -80,7 +80,11 @@ Here is the spectrogram for `ticktock.wav` (click for full size):
 
 > <a href="img/ticktock.png"><img style="width: 400px;" alt="spectrogram for ticktock audio file" src="img/ticktock.png"></a>
 
-So, how can you tell if the spectrogram of your program's output is sufficiently similar to that of the corresponding example output?  The [imgdiff.jar](res/imgdiff.jar) program compares two spectrogram images by comparing the component values of their pixels, generating an output "difference" image and statistics as a result.
+So, how can you tell if the spectrogram of your program's output is sufficiently similar to that of the corresponding example output?  The [imgdiff.jar](res/imgdiff.jar) program compares two spectrogram images by comparing the component values of their pixels, generating an output "difference" image and statistics as a result.  You can download `imgdiff.jar` to your ugrad account using the following command:
+
+```
+curl -O https://jhuintprog.github.io/fall2019/res/imgdiff.jar
+```
 
 As an example: here is a very slightly different version of the ticktock song, rendered with a phase offset:
 
