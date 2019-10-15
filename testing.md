@@ -97,7 +97,7 @@ It sounds pretty much exactly the same as `ticktock.wav`.  Its spectrogram is ve
 Let's use `imgdiff.jar` to compare the spectrograms:
 
 ```
-java -jar imgdiff ticktock.png ticktock_phase.png ticktock_phase_diff.png
+java -jar imgdiff.jar ticktock.png ticktock_phase.png ticktock_phase_diff.png
 ```
 
 This command produces the following output:
