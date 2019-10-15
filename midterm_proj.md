@@ -7,6 +7,11 @@ Due: Thursday, October 17th by 11pm
 
 **Acknowledgment**: This project was inspired by two assignments ([first](http://nifty.stanford.edu/2010/zingaro-song-generator), [second](http://nifty.stanford.edu/2012/zingaro-stereo-sound-processing/)) developed by [Dan Zingaro](http://www.danielzingaro.com/).
 
+<div style="padding: 1em; border: 3px solid #b66; border-radius: 1em; background: #ecc;">
+<b>Update 10/15</b>: The <a href="testing.html">testing</a> document has been updated
+with information about how to use spectrograms to compare audio files.
+</div>
+
 ## Introduction
 
 In this project you will implement programs to generate and transform digital audio.
