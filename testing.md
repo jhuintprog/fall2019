@@ -113,7 +113,7 @@ The gray pixels in the difference image represent the relative difference in col
 
 Now, let's consider a version of the ticktock song where the frequencies are too high by a factor of two:
 
-> <audio controls><source src="snd/ticktock_phase.wav" type="audio/wav"></audio>
+> <audio controls><source src="snd/ticktock_freq.wav" type="audio/wav"></audio>
 
 This incorrect rendering has the following spectogram:
 
