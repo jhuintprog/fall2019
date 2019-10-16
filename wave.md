@@ -3,6 +3,8 @@ layout: default
 title: "Midterm project: WAVE routines"
 ---
 
+*Update 10/16*: correct the example values in the description of how to generate a sawtooth wave
+
 This document describes functions for working with WAVE files and digital audio waveforms.  This module of the program consists of the header file `wave.h` and the source file `wave.c`.
 
 The `write_wave_header` and `read_wave_header` functions require the [binary I/O functions](io.html), so implement those first.
@@ -151,7 +153,7 @@ You can think of square waves as being modified sine waves:
 
 However you generate square waves, make sure that the duty cycle is 50%, meaning that the runs of maximum sample values are about the same length as the runs of minimum sample values.
 
-The sample values generated for sawtooth waves should increase linearly from the minimum to maximum throughout each cycle.  One way to implement this is to take the time *t* of the sample, and divide it by the length of one cycle.  For example, let's say the frequency is 440 Hz, which would make the cycle length about 0.002272 seconds.  If *t* is 4.8 seconds, then dividing *t* by the cycle length gives us approximately 2112.676056.  Taking the *floor* of this value gives us .676056.  What this means is that for our value of *t* (4.8 seconds), the generated sawtooth waveform about 2/3 of the way through the current cycle (0.676056 is about 2/3.)  Knowing where *t* is within the current cycle allows us to compute an appropriate sample value.
+The sample values generated for sawtooth waves should increase linearly from the minimum to maximum throughout each cycle.  One way to implement this is to take the time *t* of the sample, and divide it by the length of one cycle.  For example, let's say the frequency is 440 Hz, which would make the cycle length 1/440 seconds.  If *t* is 4.9902 seconds, then dividing *t* by the cycle length gives us approximately 2195.688000.  Subtracting the *floor* of this value gives us 0.688.  What this means is that for our value of *t* (4.9902 seconds), the generated sawtooth waveform about 2/3 of the way through the current cycle (0.688 is about 2/3.)  Knowing where *t* is within the current cycle allows us to compute an appropriate sample value.
 
 ## Rendering is additive!
 
